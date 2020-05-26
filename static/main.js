@@ -27,19 +27,10 @@ function getData(results){
 
         onRegionClick: function(element, code, region) {
             updateMapData(code, region, results);
-            showChart(code, region, results)
+
 
         },
-        onRegionDeselect: function(event, code, region){
-            var id = "jqvmap1_" + code;
-            console.log(id, event);
-            $('.popover').each(function () {
-                // hide any open popovers when the anywhere else in the body is clicked
-                if (!$(this).is(e.target) && $(this).has(e.target).length === 0 && $('.popover').has(e.target).length === 0) {
-                    $(this).popover('hide');
-                }
-            });
-        }
+
     });
     updateTable(results);
     updateSideMapData(results);
@@ -47,9 +38,6 @@ function getData(results){
 
 }
 
-function showChart(code, region, results){
-
-}
 function updateMapData(code, region, results) {
     var mData = JSON.stringify(results['Countries']);
     for (x of JSON.parse(mData)){
@@ -70,7 +58,7 @@ function updateMapData(code, region, results) {
                 '</ul>'+
                 '</div>'+
                 '<div class="col-sm-12 col-md-7">'+
-                '<canvas id="myChart" style="width: 100%; height: 100%;"></canvas>'+
+                    '<canvas id="myChart" style="width: 100%; height: 100%;"></canvas>'+
                 '</div>'
             );
             var ctx = document.getElementById('myChart').getContext('2d');
@@ -85,7 +73,7 @@ function updateMapData(code, region, results) {
                         'NewRecovered',
                         'TotalRecovered'],
                     datasets: [{
-                        label: '# of Votes',
+                        label: x['Country'],
                         data: [
                             x['NewConfirmed'],
                             x['TotalConfirmed'],
