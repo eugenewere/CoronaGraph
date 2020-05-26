@@ -46,16 +46,16 @@ function updateMapData(code, region, results) {
             $('#exampleModal').modal('show');
             $('#body_modal').append(
                 '<div class="col-sm-12 col-md-5">'+
-                '<h3 class="custom-title"><i class="fa fa-info-circle"></i> '+ x['Country'] +'</h3>'+
-                '<ul class="hover_list">'+
-                '<li>Total Confirmed:'+ ' '+ x['TotalConfirmed']    +'</li>'+
-                '<li>New Confirmed:'+' '+  x['NewConfirmed']   +'</li>'+
-                '<li>NewDeaths:'+' '+  x['NewDeaths']   +'</li>'+
-                '<li>TotalDeaths:'+' '+  x['TotalDeaths']   +'</li>'+
-                '<li>NewRecovered:'+' '+  x['NewRecovered']   +'</li>'+
-                '<li>TotalRecovered:'+' '+  x['TotalRecovered']   +'</li>'+
-                '<li>Date Updated:'+' '+  getUpdateTime(x['Date'])   +'</li>'+
-                '</ul>'+
+                    '<h3 class="custom-title"><i class="fa fa-info-circle"></i> '+ x['Country'] +'</h3>'+
+                    '<ul class="hover_list">'+
+                        '<li>Total Confirmed:'+ ' '+ x['TotalConfirmed']    +'</li>'+
+                        '<li>New Confirmed:'+' '+  x['NewConfirmed']   +'</li>'+
+                        '<li>NewDeaths:'+' '+  x['NewDeaths']   +'</li>'+
+                        '<li>TotalDeaths:'+' '+  x['TotalDeaths']   +'</li>'+
+                        '<li>NewRecovered:'+' '+  x['NewRecovered']   +'</li>'+
+                        '<li>TotalRecovered:'+' '+  x['TotalRecovered']   +'</li>'+
+                        '<li>Date Updated:'+' '+  getUpdateTime(x['Date'])   +'</li>'+
+                    '</ul>'+
                 '</div>'+
                 '<div class="col-sm-12 col-md-7">'+
                     '<canvas id="myChart" style="width: 100%; height: 100%;"></canvas>'+
@@ -120,19 +120,27 @@ function  updateTable(results){
     // var tablebody = document.querySelector('#');
     var mData = JSON.stringify(results['Countries']);
     var counter = 0;
+    var sign;
     for (x of JSON.parse(mData)){
         counter = counter + 1;
+
+        if (x['NewConfirmed'] === 0){
+            sign = '';
+        }else {
+            sign = '+';
+        }
         $('#myTable')
             .find('#table_body')
-            .append("<tr>"+
-                "<td>"+  counter+"</td>"+
-                "<td>"+ x['Country'] +"</td>"+
-                "<td>"+ x['NewConfirmed'] +"</td>"+
-                "<td>"+ x['TotalConfirmed'] +"</td>"+
-                "<td>"+ x['NewDeaths'] +"</td>"+
-                "<td>"+ x['TotalDeaths'] +"</td>"+
-                "<td>"+ x['NewRecovered']  +"</td>"+
-                "<td>"+ x['TotalRecovered']  +"</td>"+
+            .append("<tr >"+
+                "<td style='text-align: left;'>"+  counter+"</td>"+
+                "<td style='text-align: center;'>"+ x['Country'] +"</td>"+
+                "<td style='text-align: center;'>"+ x['TotalConfirmed'] +"</td>"+
+                "<td style='background-color: red; color: white; text-align: center;'>"+ sign + x['NewConfirmed'] +"</td>"+
+
+                "<td style='text-align: center;'>"+ x['NewDeaths'] +"</td>"+
+                "<td style='text-align: center;'>"+ x['TotalDeaths'] +"</td>"+
+                "<td style='text-align: center;'>"+ x['NewRecovered']  +"</td>"+
+                "<td style='text-align: center;'>"+ x['TotalRecovered']  +"</td>"+
                 "<td style='widows: 30px;'>"+ getUpdateTime(x['Date']) +"</td>"+
                 "</tr>"
             );
