@@ -45,7 +45,7 @@ function updateMapData(code, region, results) {
             $('#body_modal').html('');
             $('#exampleModal').modal('show');
             $('#body_modal').append(
-                '<div class="col-sm-12 col-md-5">'+
+                '<div class="col-sm-12 col-md-12 col-lg-5">'+
                     '<h3 class="custom-title"><i class="fa fa-info-circle"></i> '+ x['Country'] +'</h3>'+
                     '<ul class="hover_list">'+
                         '<li>Total Confirmed:'+ ' '+ x['TotalConfirmed']    +'</li>'+
@@ -57,7 +57,7 @@ function updateMapData(code, region, results) {
                         '<li>Date Updated:'+' '+  getUpdateTime(x['Date'])   +'</li>'+
                     '</ul>'+
                 '</div>'+
-                '<div class="col-sm-12 col-md-7">'+
+                '<div class="col-sm-12 col-md-12 col-lg-7">'+
                     '<canvas id="myChart" style="width: 100%; height: 100%;"></canvas>'+
                 '</div>'
             );
