@@ -134,7 +134,7 @@ function  updateTable(results){
             .append("<tr >"+
                         "<td style='text-align: left;'>"+  counter+"</td>"+
                         "<td  style='text-align: center; cursor: pointer;' >" +
-                            "<a data-slug="+ x['Slug'] +"  id="+ x['CountryCode'] +" onclick='eachCountryStats(this)'  href=''>" + x['Country'] + "</a>" +
+                            "<a data-slug="+ x['Slug'] +"  id="+ x['CountryCode'] +" onclick='eachCountryStats(this)'  href='#'>" + x['Country'] + "</a>" +
                         "</td>"+
                         "<td style='text-align: center;'>"+ x['TotalConfirmed'] +"</td>"+
                         "<td  style='background-color: red; color: white; text-align: center;'>"+ sign + x['NewConfirmed'] +"</td>"+
