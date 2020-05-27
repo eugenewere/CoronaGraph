@@ -1,44 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="">
 <head>
     <meta charset="UTF-8">
     <title>Covid</title>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap" rel="stylesheet">
-
+    <link rel="icon" href="static/covid-virus.png" sizes="32x32">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
 
     <link href="static/jqvmap.css" media="screen" rel="stylesheet" type="text/css"/>
+    <link href="static/main.css" media="screen" rel="stylesheet" type="text/css"/>
     <style>
-        body,html{
-            font-family: 'Ubuntu Condensed', sans-serif !important;
-        }
-        .popover-header{
 
-            margin-bottom: 0;
-
-            background-color: #f7f7f7;
-            border-bottom: 1px solid #ebebeb;
-            border-top-left-radius: calc(.3rem - 1px);
-            border-top-right-radius: calc(.3rem - 1px);
-            padding: 3px 5px !important;
-            font-size: 10px !important;
-        }
-        .hover_list{
-            padding-left: 21px;
-        }
-
-        table.dataTable tbody tr {
-             /*background-color: #343A40 !important;*/
-            color:black;
-        }
     </style>
 
 
 </head>
-<body>
-    <div class="col-sm-12 w-100">
+<body style=" ">
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: #ffffff;">
+        <div class="container px-lg-5">
+            <a class="navbar-brand" href="#">
+                <img style="width: 100px;" src="static/covid_ap.png" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#myTable">Covid-Table <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Contact </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="col-sm-12 w-100 pt-4">
         <div class="row">
             <div class="col-sp-12 col-md-12 col-lg-10">
                 <div id="vmap1" style="width: 100%; height: 100vh;"></div>
@@ -63,7 +65,7 @@
     <div class="col-sm-12 w-100 ">
         <div class="row" style="margin: 30px 0;">
             <div class="mx-auto">
-                <table id="myTable" class="table table-striped w-100 ">
+                <table id="myTable" class="table table-striped w-100  ">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
@@ -107,7 +109,46 @@
     </div>
 
 <!--    <button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>-->
+    <footer>
+        <div class="footer" id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 d-flex py-md-4 py-sm-4" style="justify-content: center; align-items: center;">
+                        <img style="width: 260px" src="static/covid_19_white.png" alt="">
+                    </div>
+                    <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                        <h3> Contact </h3>
+                        <ul>
+                            <li><a class="email" href="mailto:eugene.were1997@gmail.com"> eugene.were1997@gmail.com </a></li>
+                            <br/>
+                            <li> <a class="email" href="tel:0706833784"> +254 706 833 784 </a> </li>
 
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                        <ul id="markin">
+                            <li> <h5 style="font-weight: 600;"> LINKS</h5></li>
+                            <li style="    margin-top: 20px;"> <a href="#myTable"> Table </a></li>
+                            <li> <a href="#vmap1"> CovidMap </a> </li>
+
+                        </ul>
+                    </div>
+
+                    <!--/.row-->
+                </div>
+                <!--/.container-->
+            </div>
+            <!--/.footer-->
+
+            <div class="footer-bottom">
+                <div class="container">
+                    <p class="pull-left copyright"> Copyright © Covid Stats <script> var d = new Date(); document.write(d.getFullYear());</script>. All right reserved. </p>
+
+                </div>
+            </div>
+            <!--/.footer-bottom-->
+
+    </footer>
 
 
 

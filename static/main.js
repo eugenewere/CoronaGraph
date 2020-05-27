@@ -14,7 +14,7 @@ function getData(results){
     // console.log(results);
     $('#vmap1').vectorMap({
         map: 'world_en',
-        backgroundColor: '#ffffff',
+        backgroundColor: '#f2f2f2',
         color: '#ffffff',
         hoverOpacity: 0.7,
         selectedColor: '#858585',
