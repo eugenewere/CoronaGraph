@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" style="">
+<head>
+    <meta charset="UTF-8">
+    <title>Covid </title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap" rel="stylesheet">
+    <link rel="icon" href="static/covid-virus.png" sizes="32x32">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+
+    <link href="static/jqvmap.css" media="screen" rel="stylesheet" type="text/css"/>
+    <link href="static/main.css" media="screen" rel="stylesheet" type="text/css"/>
+    <style>
+
+    </style>
+
+
+</head>
+<body style=" ">
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: #ffffff;">
+        <div class="container px-lg-5">
+            <a class="navbar-brand" href="index.html">
+                <img style="width: 100px;" src="static/covid_ap.png" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#myTable">Covid-Table <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#footer">Contact </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="conatiner">
+        <div class="col-sm-12 w-100 pt-4">
+
+            <div class="row">
+                <div class="col-sm-12 col-md-11 col-lg-10 mx-auto" >
+                    <canvas id="vmap2" style="width: 100%; height: 100vh;"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<footer>
+    <div class="footer" id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 d-flex py-md-4 py-sm-4" style="justify-content: center; align-items: center;">
+                    <img style="width: 260px" src="static/covid_19_white.png" alt="">
+                </div>
+                <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                    <h3> Contact </h3>
+                    <ul>
+                        <li><a class="email" href="mailto:eugene.were1997@gmail.com"> eugene.were1997@gmail.com </a></li>
+                        <br/>
+                        <li> <a class="email" href="tel:0706833784"> +254 706 833 784 </a> </li>
+
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                    <ul id="markin">
+                        <li> <h5 style="font-weight: 600;"> LINKS</h5></li>
+                        <li style="    margin-top: 20px;"> <a href="#myTable"> Table </a></li>
+                        <li> <a href="#vmap1"> CovidMap </a> </li>
+
+                    </ul>
+                </div>
+
+                <!--/.row-->
+            </div>
+            <!--/.container-->
+        </div>
+        <!--/.footer-->
+
+        <div class="footer-bottom">
+            <div class="container">
+                <p class="pull-left copyright"> Copyright © Covid Stats <script> var d = new Date(); document.write(d.getFullYear());</script>. All right reserved. </p>
+
+            </div>
+        </div>
+
+        <!--/.footer-bottom-->
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" ></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js" ></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+<script type="text/javascript" src="static/country.js"></script>
+
+<script>
+
+
+    var s =localStorage.getItem(localStorage.key(0));
+    var k =localStorage.getItem(localStorage.key(1));
+
+    // console.log(document.getElementById('vmap2'));
+    $.ajax({
+        url:"https://api.covid19api.com/dayone/country/"+ s +"/status/confirmed",
+        type:"GET",
+        success:function (data) {
+            setCountryData(data);
+        },
+        error:function (data) {
+            console.log(data)
+        },
+
+    });
+
+    function setCountryData(results){
+        var mCountryData = JSON.stringify(results);
+
+        var dates = [];
+        var cases = [];
+
+        for (x of JSON.parse(mCountryData)){
+            dates.push(getUpdateDate(x['Date']));
+            cases.push(x['Cases']);
+        }
+        var ctx = $('#vmap2')[0].getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: dates,
+                datasets: [{
+                    label: x['Country'],
+                    data: cases,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(36,255,0,0.2)',
+                        'rgba(1,192,187,0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                },
+                animation: {
+                    easing: 'easeInOutElastic',
+                }
+            }
+        });
+
+    }
+
+
+    function getUpdateDate(data) {
+        var dataa ,day, monthh, year, hr, min;
+        const monthNames = ["January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ];
+        dataa = new Date(data);
+        day = dataa.getDay().toString();
+        monthh = dataa.getMonth().toString();
+        year = dataa.getFullYear().toString();
+
+
+
+        return [day, monthNames[monthh], year].join('/')
+    }
+</script>
+
+</body>
+</html>

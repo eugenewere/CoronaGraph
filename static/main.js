@@ -132,17 +132,19 @@ function  updateTable(results){
         $('#myTable')
             .find('#table_body')
             .append("<tr >"+
-                "<td style='text-align: left;'>"+  counter+"</td>"+
-                "<td style='text-align: center;'>"+ x['Country'] +"</td>"+
-                "<td style='text-align: center;'>"+ x['TotalConfirmed'] +"</td>"+
-                "<td style='background-color: red; color: white; text-align: center;'>"+ sign + x['NewConfirmed'] +"</td>"+
+                        "<td style='text-align: left;'>"+  counter+"</td>"+
+                        "<td  style='text-align: center; cursor: pointer;' >" +
+                            "<a data-slug="+ x['Slug'] +"  id="+ x['CountryCode'] +" onclick='eachCountryStats(this)'  href=''>" + x['Country'] + "</a>" +
+                        "</td>"+
+                        "<td style='text-align: center;'>"+ x['TotalConfirmed'] +"</td>"+
+                        "<td  style='background-color: red; color: white; text-align: center;'>"+ sign + x['NewConfirmed'] +"</td>"+
 
-                "<td style='text-align: center;'>"+ x['NewDeaths'] +"</td>"+
-                "<td style='text-align: center;'>"+ x['TotalDeaths'] +"</td>"+
-                "<td style='text-align: center;'>"+ x['NewRecovered']  +"</td>"+
-                "<td style='text-align: center;'>"+ x['TotalRecovered']  +"</td>"+
-                "<td style='widows: 30px;'>"+ getUpdateTime(x['Date']) +"</td>"+
-                "</tr>"
+                        "<td style='text-align: center;'>"+ x['NewDeaths'] +"</td>"+
+                        "<td style='text-align: center;'>"+ x['TotalDeaths'] +"</td>"+
+                        "<td style='text-align: center;'>"+ x['NewRecovered']  +"</td>"+
+                        "<td style='text-align: center;'>"+ x['TotalRecovered']  +"</td>"+
+                        "<td style='widows: 30px;'>"+ getUpdateTime(x['Date']) +"</td>"+
+                     "</tr>"
             );
 
 
@@ -152,6 +154,7 @@ function  updateTable(results){
         paging: true,
     });
 }
+
 function updateSideMapData(results) {
     var mData = JSON.stringify(results['Global']);
     var x =JSON.parse(mData);
@@ -217,13 +220,36 @@ function updateSideMapData(results) {
     });
 }
 function getUpdateTime(data) {
-    var dataa ,day, month, year, hr, min;
+    var dataa ,day, monthh, year, hr, min;
+    const monthNames = ["January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+    ];
     dataa = new Date(data);
     day = dataa.getDay().toString();
-    month = dataa.getMonth().toString();
+    monthh = dataa.getMonth().toString();
     year = dataa.getFullYear().toString();
     hr = dataa.getHours().toString();
     min = dataa.getMinutes().toString();
-    return [day, month, year].join('-') + ' '+ [hr, min].join(':')
+
+
+    return [day, monthNames[monthh], year].join('-') + ' '+ [hr, min].join(':')
 }
+
+
+
+
+function eachCountryStats(event) {
+    var set_slug = event.dataset.slug;
+    var c_id = event.id;
+
+
+    // window.location.href = "country.html" + queryString;
+
+    localStorage.setItem("slug", set_slug);
+    localStorage.setItem("myid", c_id);
+    window.location.href = 'country.html' + '#' + set_slug + '#' + c_id;
+
+
+}
+
 
