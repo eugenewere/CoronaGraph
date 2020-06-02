@@ -1,29 +1,63 @@
-body,html{
+body, html {
     font-family: 'Ubuntu Condensed', sans-serif !important;
     scroll-behavior: smooth;
 
 }
+
+
+/*dark mode start*/
 [data-theme="dark"] {
     background-color: #111 !important;
     color: #eee;
-  }
-  
-  [data-theme="dark"] .bg-light {
+}
+
+[data-theme="dark"] .bg-light {
     background-color: #333 !important;
-  }
-  
-  [data-theme="dark"] .bg-white {
+
+}
+
+[data-theme="dark"] .nav-link {
+    /* background-color: red !important; */
+    color: white !important;
+
+
+}
+
+[data-theme="dark"] .bg-white {
     background-color: #000 !important;
-  }
-  
-  [data-theme="dark"] .bg-black {
+}
+
+[data-theme="dark"] .bg-black {
     background-color: #eee !important;
-  }
-  
-body{
+}
+
+
+[data-theme="dark"] #vmap1 {
+    background-color: #000 !important;
+}
+
+[data-theme="dark"] table.dataTable tbody tr {
+    background-color: #000 !important;
+    color: white;
+}
+
+[data-theme="dark"] .modal-content {
+    background-color: #111111 !important;
+    color: grey;
+}
+
+[data-theme="dark"] .close {
+    color: white;
+}
+
+/*dark mode end*/
+
+
+body {
     background-color: #f2f2f2;
 }
-.dark{
+
+.dark {
     transition: all 0.3s;
     color: white !important;
     background-image: none !important;
@@ -31,7 +65,8 @@ body{
     text-shadow: none !important;
     box-shadow: none;
 }
-.popover-header{
+
+.popover-header {
 
     margin-bottom: 0;
 
@@ -42,23 +77,27 @@ body{
     padding: 3px 5px !important;
     font-size: 10px !important;
 }
-.hover_list{
+
+.hover_list {
     padding-left: 21px;
 }
 
 table.dataTable tbody tr {
     /*background-color: #343A40 !important;*/
-    color:black;
+    color: black;
 }
+
 .full {
     width: 100%;
 }
+
 .gap {
     height: 30px;
     width: 100%;
     clear: both;
     display: block;
 }
+
 .footer {
     background: #000000;
     height: auto;
@@ -68,12 +107,15 @@ table.dataTable tbody tr {
     border-bottom: 1px solid #CCCCCC;
     border-top: 1px solid #DDDDDD;
 }
+
 .footer p {
     margin: 0;
 }
+
 .footer img {
     max-width: 100%;
 }
+
 .footer h3 {
     color: white;
     font-size: 18px;
@@ -103,17 +145,20 @@ table.dataTable tbody tr {
     color: #ffffff;
     padding: 0 0 8px 0;
 }
-#markin{
+
+#markin {
     margin-top: 45px;
 }
 
-.email{
+.email {
     border-bottom: 3px solid #fff;
 }
+
 .footer ul li a {
     padding: 0 0 12px 0;
     display: block;
 }
+
 .footer a {
     color: white;
     font-weight: lighter;
@@ -122,13 +167,14 @@ table.dataTable tbody tr {
 .footer p {
     color: white;
     font-weight: lighter;
-    font-size:20px
+    font-size: 20px
 }
 
 .footer a:hover {
-    text-decoration:none;
+    text-decoration: none;
     font-weight: bold;
 }
+
 .supportLi h4 {
     font-size: 20px;
     font-weight: lighter;
@@ -153,6 +199,7 @@ table.dataTable tbody tr {
     padding-top: 20px;
     padding-bottom: 10px;
 }
+
 .footer-bottom p.pull-left {
     padding-top: 6px;
     font-size: 0.75em
