@@ -14,7 +14,7 @@ function getData(results){
     // console.log(results);
     $('#vmap1').vectorMap({
         map: 'world_en',
-        backgroundColor: '#f2f2f2',
+        backgroundColor: '#ffffff',
         color: '#ffffff',
         hoverOpacity: 0.7,
         selectedColor: '#858585',
@@ -47,7 +47,7 @@ function updateMapData(code, region, results) {
             $('#body_modal').append(
                 '<div class="col-sm-12 col-md-12 col-lg-5">'+
                     '<h3 class="custom-title"><i class="fa fa-info-circle"></i> '+ x['Country'] +'</h3>'+
-                    '<ul class="hover_list">'+
+                    '<ul class="hover_list text-left">'+
                         '<li>Total Confirmed:'+ ' '+ x['TotalConfirmed']    +'</li>'+
                         '<li>New Confirmed:'+' '+  x['NewConfirmed']   +'</li>'+
                         '<li>NewDeaths:'+' '+  x['NewDeaths']   +'</li>'+

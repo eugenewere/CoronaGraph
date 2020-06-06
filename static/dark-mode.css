@@ -10,6 +10,9 @@
 [data-theme="dark"] .bg-white {
   background-color: #000 !important;
 }
+[data-theme="dark"] .nav-link {
+  color: #ffffff !important;
+}
 
 [data-theme="dark"] .bg-black {
   background-color: #eee !important;
@@ -19,8 +22,12 @@
 [data-theme="dark"] #vmap1 {
   background-color: #000 !important;
 }
+[data-theme="dark"] .modal-content {
+  background-color: #000 !important;
+}
 
-[data-theme="dark"] table.dataTable tbody tr {
+
+[data-theme="dark"] table.dataTable tbody tr , table.dataTable thead th {
   background-color: #000 !important;
   color: white;
 }

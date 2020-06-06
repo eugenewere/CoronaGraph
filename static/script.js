@@ -1,11 +1,11 @@
 function $(s) {
-    alert('helloo')
+    alert('helloo');
 
     $(document).ready(function() {
-        alert('hell')
+        alert('hell');
 
         $("#false").click(function(){
-            alert('heloo')
+            alert('heloo');
             $(".target").toggle(false);
         });
 
