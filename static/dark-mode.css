@@ -1,6 +1,7 @@
 [data-theme="dark"] {
   background-color: #111 !important;
   color: #eee;
+  transform-origin: center;
 }
 
 [data-theme="dark"] .bg-light {
@@ -28,9 +29,20 @@
 [data-theme="dark"] .logoo {
   background:url("covid_19_white.png") no-repeat !important;
 }
+[data-theme="dark"] .dataTables_paginate , .paginate_button {
+  color: white;
+}
+[data-theme="dark"] .paginate_button .current {
+  color: white;
+  background: red;
+}
+[data-theme="dark"] .paginate_button  {
+  color: white !important;
+  background: #6a6766;
+}
 
 
-[data-theme="dark"] table.dataTable tbody tr , table.dataTable thead th {
+[data-theme="dark"]  table.dataTable tbody tr , [data-theme="dark"]  table.dataTable thead th {
   background-color: #000 !important;
   color: white;
 }
