@@ -40,6 +40,10 @@
   color: white !important;
   background: #6a6766;
 }
+[data-theme="dark"] .dataTables_length, [data-theme="dark"] dataTables_filter {
+  color: white !important;
+
+}
 
 
 [data-theme="dark"]  table.dataTable tbody tr , [data-theme="dark"]  table.dataTable thead th {
