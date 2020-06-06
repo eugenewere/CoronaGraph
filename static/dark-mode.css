@@ -25,9 +25,13 @@
 [data-theme="dark"] .modal-content {
   background-color: #000 !important;
 }
+[data-theme="dark"] .logoo {
+  background:url("covid_19_white.png") no-repeat !important;
+}
 
 
 [data-theme="dark"] table.dataTable tbody tr , table.dataTable thead th {
   background-color: #000 !important;
   color: white;
 }
+
