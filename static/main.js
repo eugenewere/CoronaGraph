@@ -1,11 +1,15 @@
 
 $(document).ready(function(){
-    $.ajax({
-        url:"https://api.covid19api.com/summary",
-        type:"GET",
-        success:getData,
-        error:getError,
-    })
+    try{
+         $.ajax({
+            url:"https://api.covid19api.com/summary",
+            type:"GET",
+            success:getData,
+            error:getError,
+        })
+    }
+    catch(e){}
+   
 });
 function getError(results) {
     console.log(results);
